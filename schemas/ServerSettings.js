@@ -12,7 +12,7 @@ const schema = new mongoose.Schema({
     },
 
     ownerID: {
-        type: Number,
+        type: String,
         required: false
     },
 
@@ -28,17 +28,17 @@ const schema = new mongoose.Schema({
     },
 
     updateCountDownChannel: {
-        type: Number,
+        type: String,
         required: false
     },
 
     remindersChannel: {
-        type: Number,
+        type: String,
         required: false
     },
 
-    updateRemindersChannel: {
-        type: Number,
+    updateNotificationsChannel: {
+        type: String,
         required: false
     }
 });

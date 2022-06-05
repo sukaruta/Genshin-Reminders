@@ -5,7 +5,7 @@ const ServerSettings = require("../schemas/ServerSettings");
 module.exports = {
     data: new SlashCommandBuilder()
             .setName("setsettingspermissions")
-            .setDescription("Add or remove roles that can modify and access this bot's settings."),
+            .setDescription("Read or modify roles that can access and change the settings of this bot."),
 
     cooldown: 10,
     whitelisted: true,
@@ -13,10 +13,10 @@ module.exports = {
         const serverSettings = await ServerSettings.findOne({ guildID: messasge.guild.id });
 
         switch (args[1]) {
-            case "add":
+            case "grant":
                 grantRolePermissions();
                 break;
-            case "remove":
+            case "revoke":
                 revokeRolePermissions();
                 break;
             default:

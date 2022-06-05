@@ -4,7 +4,7 @@ const ServerSettings = require("../schemas/ServerSettings");
 
 module.exports = {
     data: new SlashCommandBuilder()
-            .setName("setsettingspermissions")
+            .setName("settingspermissions")
             .setDescription("Read or modify roles that can access and change the settings of this bot."),
 
     cooldown: 10,

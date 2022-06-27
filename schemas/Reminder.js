@@ -2,13 +2,8 @@ const mongoose = require("mongoose");
 const { upcomingVersion } = require("../static/staticData.json");
 
 const schema = new mongoose.Schema({
-    guildName: {
-        type: String,
-        required: true
-    },
-    
-    guildID: {
-        type: Number,
+    creationDate: {
+        type: Date,
         required: true
     },
 
@@ -17,9 +12,8 @@ const schema = new mongoose.Schema({
         required: true
     },
 
-    reminderDate: {
-        type: Date,
-        required: true
+    modifyableBy: {
+        type: [String],
     },
 
     title: {
@@ -34,12 +28,16 @@ const schema = new mongoose.Schema({
 
     embedColor: {
         type: String,
-        default: "BLUE"
+        default: "DEFAULT"
     },
 
     embedFooter: {
-        type: String,
-        default: new Date().toLocaleDateString()
+        type: String || Date,
+        default: "Wow. Pogers."
+    },
+
+    embedFields: {
+        type: mongoose.Schema.Types.Mixed
     },
 
     embedThumbnail: {

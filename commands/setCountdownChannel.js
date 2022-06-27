@@ -4,8 +4,8 @@ const ServerSettings = require("../schemas/ServerSettings");
 
 module.exports = {
     data: new SlashCommandBuilder()
-            .setName("setreminderchannel")
-            .setDescription("Tells the bot where reminders will be sent in."),
+            .setName("setcountdownchannel.")
+            .setDescription("Tells the bot where the update countdown tracker will be sent in."),
 
     cooldown: 10,
     whitelisted: true,
@@ -16,9 +16,9 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new MessageEmbed()
-                        .setTitle("Reminders Channel")
+                        .setTitle("Update Countdown Tracker Channel")
                         .setDescription(`
-                        The reminders channel for this server is <#${ serverSettings.remindersChannel || "N/A" }>
+                        The reminders channel for this server is <#${ serverSettings.updateCountDownChannel || "N/A" }>
                         `)
                 ]
             });
@@ -30,9 +30,9 @@ module.exports = {
         if (message.guild.channels.cache.get(normalizedChannelID).type !== "GUILD_TEXT") 
             return message.reply("Please make sure that the channel you have selected is a text channel.");
 
-        await ServerSettings.findOneAndUpdate({ guildID: message.guild.id }, { remindersChannel: normalizedChannelID });
+        await ServerSettings.findOneAndUpdate({ guildID: message.guild.id }, { updateCountDownChannel: normalizedChannelID });
 
-        message.reply(`All outgoing reminders will now be sent in <#${normalizedChannelID}>`);
+        message.reply(`The update countdown will <#${normalizedChannelID}>`);
 
         return;
 

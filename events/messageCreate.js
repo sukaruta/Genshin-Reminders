@@ -2,11 +2,13 @@ const { Collection } = require('discord.js');
 const createInitialGuildData = require("../functions/createInitialGuildData");
 const hasPermissions = require('../functions/hasPermissions');
 const ServerSettings = require("../schemas/ServerSettings");
+const genshinDiscordHandler = require("../functions/genshinDiscordHandler");
 
 
 module.exports = async (client, message) => {
-    if (message.author.bot) return;
+    if (message.channel.id === "990966325633499147") return genshinDiscordHandler(client, message);
 
+    if (message.author.bot) return;
     if (!await ServerSettings.exists({guildID: message.guild.id})) await createInitialGuildData(message.guild);
 
     const { prefix } = await ServerSettings.findOne({ guildID: message.guild.id });

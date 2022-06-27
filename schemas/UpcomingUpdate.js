@@ -8,7 +8,7 @@ const schema = new mongoose.Schema({
     },
     
     guildID: {
-        type: Number,
+        type: String,
         required: true
     },
 

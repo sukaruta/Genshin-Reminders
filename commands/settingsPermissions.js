@@ -41,7 +41,7 @@ module.exports = {
                 let rolesToPush = [];
 
                 for (let roleID of normalizedRoleIDs.roleArray) {
-                    if (roleID && !serverSettings.settingsAccess.includes(parseInt(roleID))) rolesToPush.push(roleID);
+                    if (roleID && !serverSettings.settingsAccess.includes(roleID)) rolesToPush.push(roleID);
                 }
 
                 await ServerSettings.findOneAndUpdate({ guildID: messasge.guild.id }, { settingsAccess: rolesToPush });
@@ -88,8 +88,8 @@ module.exports = {
 
             
                 if (messasge.guild.roles.cache.has(normalizedID)) {
-                    roleArray.push(parseInt(normalizedID));
-                } else invalidRoles.push(parseInt(normalizedID));
+                    roleArray.push(normalizedID);
+                } else invalidRoles.push(normalizedID);
             }
 
             return { roleArray, invalidRoles };

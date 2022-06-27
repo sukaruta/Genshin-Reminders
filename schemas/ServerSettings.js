@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
     },
 
     guildID: {
-        type: Number,
+        type: String,
         required: false
     },
 
@@ -17,14 +17,14 @@ const schema = new mongoose.Schema({
     },
 
     settingsAccess: {
-        type: [Number],
+        type: [String],
         required: false,
     },
 
     prefix: {
         type: String,
         required: false,
-        default: process.env.PREFIX
+        default: process.env.DEFAULT_PREFIX
     },
 
     updateCountDownChannel: {
@@ -37,7 +37,7 @@ const schema = new mongoose.Schema({
         required: false
     },
 
-    updateNotificationsChannel: {
+    genshinAnnouncementsChannel: {
         type: String,
         required: false
     }

@@ -4,8 +4,7 @@
   "description": "A Discord bot that sets reminders for every major Genshin event and things in that sort.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marunouchi#4870",
   "license": "ISC",

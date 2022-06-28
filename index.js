@@ -42,7 +42,7 @@ fs.readdir('./events/', (err, files) => {
     
     client.once("ready", _ => {
         runAllReminders.initalizeAllOngoingReminders(client);
-        // require("./functions/genshinTweetsHandler")(client);
+        require("./functions/genshinTweetsHandler")(client);
         console.log(`✅ Genshin Updates Discord bot logged in on "${client.user.username}#${client.user.discriminator}"`);
         console.timeEnd("Time elapsed on bot login");
         

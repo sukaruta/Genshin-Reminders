@@ -153,6 +153,8 @@ module.exports = {
                         
                         case 5:
                             let fieldData;
+                            if (msg.content.toUpperCase() === "DEFAULT") return collector.stop("processComplete");
+                            
                             try {
                                 fieldData = JSON.parse(`[${msg.content}]`);
                             } catch (err) {

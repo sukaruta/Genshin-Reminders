@@ -123,7 +123,7 @@ module.exports = {
                                 stage++;
                                return msg.reply(questions[stage]);
                             }
-                            reminderOptions.embedColor = msg.content;
+                            reminderOptions.embedColor = msg.content.toUpperCase();
                             stage++;
                             msg.reply(questions[stage]);
                             break;
